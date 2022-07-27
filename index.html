@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20220727005256">
+	<link rel="stylesheet" href="css/style.min.css?_v=20220727200923">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,7 +16,7 @@
 	<div class="wrapper">
 		<header data-lp class="header">
 			<div class="header__container">
-				<a href="#" class="header__logo"><img src="img/logo-light.svg" alt="Logotype"></a>
+				<a data-goto=".hero" href="#" class="header__logo"><img src="img/logo-light.svg" alt="Logotype"></a>
 				<div class="header__menu menu">
 					<nav class="menu__body">
 						<ul class="menu__list">
@@ -335,16 +335,15 @@
 				</div>
 			</section>
 			<section class="calc">
-				<div class="calc__container">
+				<div data-watch class="calc__container">
 					<div class="calc__column">
-						<div data-watch class="calc__items">
+						<div class="calc__items">
 							<div class="calc__description">Нужна консультация?</div>
 							<div class="calc__sub-descriptios">Оставьте заявку и мы вам перезвоним!</div>
-							<form data-popup-message="#form-message" action="files/sendmail/sendmail.php" method="POST" class="calc__form form">
-								<input required type="text" name="form[name]" data-error="Error" placeholder="Ваше имя" autocomplete="off" class="calc__input input">
-								<input type="tel" name="form[phone]" data-error="Error" placeholder="Ваш телефон" autocomplete="off" class="calc__input input">
-								<input type="email" name="form[email]" autocomplete="off" data-error="Error" placeholder="Ваш E-mail" class="calc__input input">
-								<input type="file" name="file" data-error="Error" class="calc__input input">
+							<form data-ajax data-popup-message="#form-message" action="files/sendmail/sendmail.php" method="POST" class="calc__form form">
+								<input required type="text" name="name" data-error="Error" placeholder="Ваше имя*" autocomplete="off" class="calc__input input">
+								<input type="tel" name="tel" data-error="Error" placeholder="Ваш телефон" autocomplete="off" class="calc__input input">
+								<input type="email" name="email" autocomplete="off" data-error="Error" placeholder="Ваш E-mail" class="calc__input input">
 								<button type="submit" class="calc__button btn">Отправить</button>
 							</form>
 						</div>
@@ -352,7 +351,7 @@
 					<div class="calc__column">
 						<div class="calc__content">
 							<h2 data-watch class="calc__title title title_s"><span>Подготовим</span> расчет стоимости за 1 час</h2>
-							<div data-watch class="calc__subtitle">Наш специалист подготовит расчет стоимости вывески за 1 час и ответит на все интересующие вопросы!</div>
+							<div class="calc__subtitle">Наш специалист подготовит расчет стоимости вывески за 1 час и ответит на все интересующие вопросы!</div>
 						</div>
 					</div>
 				</div>
@@ -436,7 +435,7 @@
 			</div>
 		</div>
 	</div>
-	<script src="js/app.min.js?_v=20220727005256"></script>
+	<script src="js/app.min.js?_v=20220727200923"></script>
 </body>
 
 </html>
