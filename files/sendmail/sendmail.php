@@ -6,6 +6,13 @@
 	require 'phpmailer/src/PHPMailer.php';
 	require 'phpmailer/src/SMTP.php';
 
+	// Переменные, которые отправляет пользователь
+	$name = $_POST['name'];
+	$tel = $_POST['tel'];
+	$email = $_POST['email'];
+	$text = $_POST['text'];
+	$file = $_FILES['myfile'];
+
 	$mail = new PHPMailer(true);
 	$mail->CharSet = 'UTF-8';
 	$mail->setLanguage('ru', 'phpmailer/language/');
@@ -26,27 +33,17 @@
 	//Кому отправить
 	$mail->addAddress('artvpart@gmail.com'); // Указать нужный E-mail
 	//Тема письма
-	$mail->Subject = 'Привет! Это новая заявка';
+	$mail->Subject = 'Заявка в сайта';
 
-	//Тело письма
-	$body = '<h1>Заявка!</h1>';
-
-	//if(trim(!empty($_POST['email']))){
-		//$body.=$_POST['email'];
-	//}	
+	// Формирование самого письма
+	$title = "Заголовок письма";
+	$body = "
+	<h2>Новое письмо</h2>
+	<b>Имя:</b> $name<br>
+	<b>Телефон:</b> $tel<br>
+	<b>Почта:</b> $email<br><br>
+	";
 	
-	
-	//Прикрепить файл
-	if (!empty($_FILES['image']['tmp_name'])) {
-		//путь загрузки файла
-		$filePath = __DIR__ . "/files/sendmail/attachments/" . $_FILES['image']['name']; 
-		//грузим файл
-		if (copy($_FILES['image']['tmp_name'], $filePath)){
-			$fileAttach = $filePath;
-			$body.='<p><strong>Фото в приложении</strong>';
-			$mail->addAttachment($fileAttach);
-		}
-	}
 	
 
 	$mail->Body = $body;
